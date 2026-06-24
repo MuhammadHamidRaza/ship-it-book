@@ -1,0 +1,108 @@
+---
+title: "2.4 — Validate Before You Build"
+description: How to test your assumptions before writing code.
+sidebar_label: "2.4 — Validate Before You Build"
+---
+
+# Validate Before You Build
+
+You have a problem. You have a potential solution. You want to open your editor and start building. Stop. You haven't validated anything yet.
+
+Validation is the step between identifying a problem and building a solution. It's where you test your assumptions with real evidence before committing time and code. Most developers skip this step. That's why most products fail.
+
+## The Validation Hierarchy
+
+Not all validation is equal. From weakest to strongest:
+
+1. **I think this is a problem** — Your assumption, untested
+2. **I found people complaining about it online** — Weak signal (people complain about everything)
+3. **I talked to 5 people who say they have this problem** — Better, but words are cheap
+4. **People tried a prototype and asked for more** — Strong signal
+5. **People paid for a pre-order or early access** — Strongest signal before building
+
+Most developers stop at level 1 or 2. They see a few Reddit threads and declare the problem validated. Real validation starts at level 4.
+
+## The Problem Interview
+
+The most effective validation tool is the problem interview. Talk to 10-15 people who might have the problem. Don't pitch your solution. Ask about their experience.
+
+Effective questions:
+- "Walk me through how you handle [situation] today."
+- "What's the most frustrating part of that process?"
+- "How much time/money does this problem cost you?"
+- "Have you tried to solve this before? What happened?"
+- "If you could wave a magic wand, what would change?"
+
+Red flags:
+- "I'd definitely use that!" (they're being nice)
+- "Sounds interesting." (they're being polite)
+- "Let me think about it." (they're avoiding saying no)
+
+Green flags:
+- "This is such a pain, I was literally just dealing with it."
+- "How soon can I try it?"
+- "How much does it cost?"
+
+## The Smoke Test
+
+Before building anything, test demand with a smoke test. Create a landing page that describes your solution and asks people to sign up or pre-order. Drive traffic to it from relevant communities.
+
+If people click and sign up, you have demand. If nobody signs up, you either have a messaging problem or a demand problem. Figure out which before building.
+
+A good smoke test page includes:
+- A clear headline describing the problem
+- A one-sentence description of the solution
+- A call-to-action button ("Get Early Access" or "Pre-order Now")
+- Social proof if you have any
+
+No code required. Use Carrd, Gumroad, or a simple HTML page.
+
+## The Concierge MVP
+
+Before building software, solve the problem manually. Offer to help someone with their problem using whatever tools are available — spreadsheets, email, manual work.
+
+A concierge MVP tests whether your solution creates value without building any technology. If people are willing to use a manual version, they'll use an automated one.
+
+Example: Before building his scheduling tool, the founder manually scheduled appointments for users. He learned exactly what the software needed to do by doing it himself.
+
+## The Fake Door Test
+
+The fake door test places a button or link in your UI that leads to a "coming soon" page. You measure how many people click it. If nobody clicks, either they don't see it or they don't want it. If people click and are disappointed, you have validated demand.
+
+This works well for features you're considering adding. Add a button. Measure clicks. Decide whether to build.
+
+## The Hard Truth
+
+Validation is uncomfortable because it might prove you wrong. Developers avoid it because they'd rather build something that fails than learn that their idea was bad.
+
+But failing after building takes months. Failing after validating takes days. The faster you learn your idea is wrong, the faster you can find one that's right.
+
+Validation doesn't guarantee success. But skipping validation guarantees that you're building on assumptions, not evidence.
+
+## Your Turn
+
+Pick your riskiest assumption. Design a validation test for it. Use one of the methods above. Set a deadline of one week to complete the test. Don't write a single line of product code until you have results.
+
+## End-of-Chapter Checklist
+
+- [ ] I understand the validation hierarchy: think → see → talk → try → pay
+- [ ] I've framed my riskiest assumption as a testable hypothesis
+- [ ] I've written a problem interview script to test that assumption
+- [ ] I've designed a smoke test or landing page to measure demand
+- [ ] I've committed to running my validation test within one week
+- [ ] I will not write any product code until I have evidence
+
+## What You Learned
+
+- Validation tests assumptions with evidence before you build
+- The validation hierarchy: think → see complaints → talk → try → pay
+- Problem interviews reveal whether people actually have the problem
+- Smoke tests measure demand before you build
+- Concierge MVPs test value without building software
+- Failed validation saves months of wasted work
+
+## What's Next
+
+You've validated that people actually want what you're building. Now it's time to apply systems thinking and design the solution.
+
+**Next: [Part 3 — Design the Solution →](../part-3-design-the-solution/)**

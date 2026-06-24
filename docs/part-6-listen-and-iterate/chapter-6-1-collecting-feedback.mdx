@@ -1,0 +1,206 @@
+---
+title: "Chapter 6.1 — How to Collect Real Feedback"
+description: Signals, not noise.
+sidebar_label: "6.1 — Collecting Real Feedback"
+---
+
+# How to Collect Real Feedback
+
+Your product is live. People are using it. Now you need to know what they think. But most feedback you'll get is useless.
+
+"I like it" tells you nothing. "It's good but needs work" is noise. Real feedback is specific, honest, and actionable. Here's how to get it.
+
+## The Feedback Interview
+
+Don't ask "what do you think?" Ask specific questions:
+- What did you expect to happen when you clicked that button?
+- Where did you feel confused?
+- What almost made you give up?
+- What did you hope would happen next?
+- What would make you come back tomorrow?
+
+These questions reveal gaps between your mental model and the user's experience. You designed the product. You know how it works. They don't. Their confusion is your roadmap.
+
+Here's a complete feedback interview script you can use:
+
+**Introduction (2 minutes):**
+"Thanks for taking time to talk. I'm not looking for praise — I need honest feedback to make this better. There are no wrong answers. If something was confusing or frustrating, I need to hear that."
+
+**Warm-up (3 minutes):**
+"Before we talk about the product, tell me about how you currently handle [problem]. What tools or processes do you use? What frustrates you about them?"
+
+**Task-based questions (10 minutes):**
+"Can you open the product and do [specific task]? Talk out loud while you do it. Tell me what you're thinking, what you expect, and what surprises you."
+
+While they perform the task, take notes on:
+- Where they hesitate
+- Where they click the wrong thing
+- Where they express frustration or confusion
+- Where they smile or say "oh, that's cool"
+
+**Follow-up questions (5 minutes):**
+- "What almost made you stop during that task?"
+- "If you could change one thing about that flow, what would it be?"
+- "On a scale of 1-10, how likely are you to use this again? What would make it a 10?"
+
+**Closing (2 minutes):**
+"Is there anything else I should know? Anything I didn't ask about?"
+
+Record the conversation (with permission). Transcribe it later. You'll catch things you missed during the live conversation.
+
+The goal of each interview is to find one thing you didn't expect. If you didn't learn something surprising, you weren't asking the right questions.
+
+## The Mom Test
+
+Read "The Mom Test" by Rob Fitzpatrick. The core idea: people will lie to be nice. Your mom will tell you your product is great. You can't trust her.
+
+To get honest feedback, ask about their life, not your product. "How do you currently handle [problem]?" instead of "What do you think of my solution?"
+
+Watch for compliments. "I love the design" is a kiss of death. It means they don't want to hurt your feelings. Dig deeper. "What would you change?" "What frustrated you?"
+
+The best signal is when they describe their problem in detail without you prompting. The worst signal is when they praise your effort.
+
+Three specific traps to avoid:
+
+**Trap 1: The compliment deflection.** User says "This is great!" You feel good. You stop probing. Wrong response: "Thanks!" Right response: "What specifically works for you? What doesn't?" Force them to be specific. If they can't name something specific, the compliment was politeness.
+
+**Trap 2: The future promise.** User says "I would definitely use this if you added X." This sounds like a commitment. It's not. It's a nice way of saying "I don't want to use what you currently have." Don't build X. Ask them to commit to using the current version first.
+
+**Trap 3: The fake pain.** User says "[Problem] is really painful for me." Then you ask "How have you tried to solve it?" They say "I haven't." Real pain motivates action. If they haven't tried to solve it, it's not painful enough. Move on.
+
+The only valid signal is commitment. Did they give you money? Time? A referral? A promise to use the product next week? Everything else is noise.
+
+## The Kano Model
+
+Not all feedback is equal. Some features excite users. Some frustrate them when missing but don't impress when present. Some are neutral. The Kano Model helps you categorize feedback.
+
+The model divides features into three categories:
+
+**Basic Needs (threshold features):** Users expect these. If missing, they're furious. If present, they don't care. Example: a login page. Nobody praises your login page. But if it's broken, they leave immediately.
+
+**Performance Features:** More is better. Faster loading. Cheaper pricing. More integrations. These correlate directly with satisfaction. Users will tell you about these because they can imagine the improvement.
+
+**Delighters (excitement features):** Unexpected features that create positive surprise. Users don't ask for these because they don't know they're possible. Examples: the "undo send" in Gmail, the haptic feedback when you toggle a switch on iPhone, the confetti animation when a task is completed.
+
+When collecting feedback, categorize every request:
+
+- Is this a basic need you're failing at? Fix it immediately.
+- Is this a performance feature you can improve? Prioritize based on impact.
+- Is this a delighter that would create buzz? Save for when you have bandwidth.
+
+The trap is spending all your time on delighters while basic needs are broken. A confetti animation won't save you if users can't log in.
+
+## Quantitative vs Qualitative Signals
+
+Feedback comes in two forms: numbers and words. You need both.
+
+**Quantitative signals (what they do):**
+- Page views, signups, activation rates
+- Daily/weekly/monthly active users
+- Retention curves
+- Funnel conversion rates
+- Churn rate
+- Net Promoter Score
+
+**Qualitative signals (what they say):**
+- Interview quotes
+- Support tickets
+- Feature requests
+- Social media mentions
+- Review comments
+
+Numbers tell you what's happening. Words tell you why.
+
+The right workflow: your analytics dashboard shows you that 70% of users drop off at step 3 of onboarding. That's a quantitative signal. Now you interview 5 users who dropped off and ask them what happened at step 3. That's qualitative research. The numbers showed you the symptom; the interviews show you the cause.
+
+Don't make decisions based on numbers alone. A retention rate of 10% is bad, but if the 10% who stay are paying customers who love the product, that's different from a 10% retention where nobody cares. Talk to those 10%. Understand why they stay. Build for them.
+
+Don't make decisions based on words alone. Three users asking for a feature is not a market. Check the numbers: how many users actually need this? Would it improve retention or just make 3 people happy?
+
+## Churn Analysis
+
+Churn is the rate at which users stop using your product. For a SaaS product, it's the percentage of paying customers who cancel each month. For a free product, it's the percentage of active users who stop being active.
+
+Monthly churn of 5% means you lose almost half your users every year. Monthly churn of 10% means you lose 72% yearly. These are death sentences unless growth exceeds them.
+
+To analyze churn:
+
+**Step 1: Identify who churns.** Are they a specific segment? (Trial users vs paying. Small vs large accounts. One type of user persona.)
+
+**Step 2: Find the churn moment.** When do they leave? Day 1? After the trial ends? After a specific feature fails? Plot the time-to-churn graph.
+
+**Step 3: Ask them why.** Send an exit survey. Keep it short: "What made you leave? What could we have done differently?" If possible, offer a 15-minute call in exchange for a gift card or extended trial.
+
+**Step 4: Look for patterns.** Three people churned because of bugs. Five because they couldn't justify the cost. Two because they switched to a competitor. These patterns tell you where to focus.
+
+**Step 5: Fix the biggest churn cause.** It's almost never what you expect. Founders usually think churn is about pricing or features. It's usually about poor onboarding, missing core functionality, or unmet expectations.
+
+A simple churn calculation: (Customers lost in month) / (Customers at start of month) x 100 = monthly churn rate.
+
+For SaaS, healthy monthly churn is under 5%. Great is under 2%. Elite is under 1%. If your churn is above 5%, you have a product problem, not a marketing problem. Fix the product before spending more on acquisition.
+
+## Net Promoter Score Basics
+
+NPS is a single question: "How likely are you to recommend our product to a friend or colleague?" Scale of 0 (not likely) to 10 (extremely likely).
+
+- 9-10: Promoters (loyal, enthusiastic)
+- 7-8: Passives (satisfied but not enthusiastic)
+- 0-6: Detractors (unhappy, likely to churn)
+
+NPS = % Promoters - % Detractors. Score ranges from -100 to +100.
+
+For indie products, anything above 0 is decent. Above 30 is good. Above 50 is excellent.
+
+NPS is useful as a trend, not an absolute. Track it monthly. If it's trending up, you're moving in the right direction. If it's trending down, something is wrong.
+
+Important: NPS is a lagging indicator. By the time NPS drops, users have already been unhappy for a while. Use it alongside leading indicators like onboarding completion rates and feature adoption.
+
+Send the NPS survey after a user has been active for 2-4 weeks. Earlier and you're measuring first impressions, not real opinions. Later and you miss users who churned quickly.
+
+## Feedback Channels
+
+Give users multiple ways to give feedback:
+- An in-app feedback widget (Canny, ProductBoard, or a simple Formspree form)
+- A public roadmap where users can upvote features
+- A support email that goes to you personally
+- A community space (Discord, Slack, or GitHub Discussions)
+- Direct messages on social media
+
+The best feedback comes from users who care enough to seek out a channel. If you make it easy, they'll tell you what's wrong.
+
+For the feedback widget, place it in the bottom corner of your app. Keep the form short: "What's on your mind?" and "How can we improve?" Optionally include a screenshot. That's it. Longer forms get abandoned.
+
+For the support email, respond personally within 24 hours. When you're small, your personal responsiveness is a competitive advantage. Big companies take days or weeks to respond. You can respond in hours. Use that.
+
+For the community space, just having it signals that you're invested in your users. You don't need thousands of members. A Discord with 20 active users is more valuable than a forum with 2000 lurkers.
+
+## The Hard Truth
+
+Most feedback is wrong. Not maliciously wrong. Just wrong. Users are great at identifying problems and terrible at suggesting solutions.
+
+A user says "add dark mode." They're right that something about your UI bothers them. They're probably wrong that dark mode is the fix. The real problem might be contrast, spacing, or color psychology, not the light theme.
+
+Listen to the problem beneath the suggestion. Don't blindly implement feature requests. Diagnose first.
+
+The best filter for feedback: "Does this align with the core problem we're solving?" If a feature request doesn't serve your core value proposition, it's a distraction. Polite decline: "That's an interesting idea. We're currently focused on [core direction], so it won't be a priority. But I understand the need and we'll revisit when we can."
+
+## Your Turn
+
+This week, interview three users. Use the questions above. Record the conversations (with permission). Listen for the gap between what they expected and what you built.
+
+After each interview, write down one thing you learned and one thing you'll change.
+
+Also set up a quantitative feedback loop. Pick one metric — NPS, weekly active users, or churn rate. Measure it this week. Measure it again next month. Watch the trend.
+
+## What You Learned
+
+- Ask specific questions about their experience, not their opinion
+- Follow a structured interview script to get actionable insights
+- Read "The Mom Test" — compliments are dangerous signals
+- Use the Kano Model to categorize feature importance
+- Track behavior, not words — actions reveal truth
+- Combine quantitative data with qualitative interviews
+- Churn analysis tells you where your product is failing
+- NPS is useful as a trend, not an absolute
+- Make feedback channels easy to access
+- Listen to problems, not solutions — users describe symptoms, not cures

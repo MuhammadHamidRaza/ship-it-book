@@ -1,0 +1,312 @@
+---
+title: "Chapter 7.1 — Building in Public on GitHub"
+description: Your repo is your resume.
+sidebar_label: "7.1 — Building in Public on GitHub"
+---
+
+# Building in Public on GitHub
+
+Your GitHub profile is your most powerful marketing tool. Not your website. Not your Twitter bio. Your code. Every repo you create is a living portfolio that proves what you can build.
+
+Most developers keep their projects private until they're "ready." They hide their work, afraid of judgment. Then they wonder why nobody knows who they are. Building in public is the antidote.
+
+## What Building in Public Means
+
+Building in public means sharing your process as it happens. Not after you succeed. Not when things are polished. Now. The good parts and the ugly parts.
+
+On GitHub, this means:
+- Making your repo public from day one
+- Writing clear README and documentation
+- Using issues to track your roadmap publicly
+- Sharing your development process
+- Accepting contributions and feedback
+- Showing your work even when it's incomplete
+
+Every commit is a signal. Every issue is a conversation. Every README is an invitation.
+
+The most immediate benefit: people discover your work through GitHub search. When someone searches for a problem your product solves, they might find your repo. A public repo with a clear README is a lead generation machine that runs 24/7 with zero maintenance.
+
+The second benefit: credibility. When a potential user or investor looks you up, they see your code. They see your commit history. They see how you handle issues. They see your changelog. All of this builds trust faster than any landing page.
+
+## The README as Your Landing Page
+
+Your README is the front door to your project. It should answer:
+- What is this project?
+- Who is it for?
+- What problem does it solve?
+- How do I use it?
+- How can I contribute?
+- What's the roadmap?
+
+Use screenshots or a demo GIF. Show what your product looks like. People scan READMEs. Make the value proposition visible in seconds.
+
+Here's a README template that works:
+
+```markdown
+# Product Name
+
+> One-line description of what your product does and who it's for.
+
+![Demo GIF or screenshot](link-to-demo.gif)
+
+## The Problem
+
+Two sentences about the specific problem this solves. Make it hurt. Make the reader nod and think "yes, that's me."
+
+## The Solution
+
+Two sentences about how your product solves it. Focus on outcomes, not features.
+
+## Quick Start
+
+\`\`\`bash
+npm install my-product
+npx my-product --config config.json
+\`\`\`
+
+## Features
+
+- **Feature 1**: What it does and why it matters
+- **Feature 2**: What it does and why it matters
+- **Feature 3**: What it does and why it matters
+
+## Roadmap
+
+- [ ] Feature planned for next month
+- [ ] Feature planned for next quarter
+- [ ] Long-term vision
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for how to get involved.
+
+## License
+
+MIT — see [LICENSE](LICENSE) for details.
+```
+
+The template is not the point. The point is that every section serves a purpose. A visitor should know within 10 seconds whether this project is for them.
+
+Use a clear license file. MIT is standard for open-source projects. It tells people they can use, modify, and distribute your code freely. Without a license, nobody can legally use your code.
+
+## Open Source Contribution Guides
+
+If your project is open source or open-core, you need a CONTRIBUTING.md file. This removes friction for people who want to help.
+
+Your CONTRIBUTING.md should cover:
+
+**Setup instructions.** How to clone the repo, install dependencies, and run the project locally. Assume the contributor is on a fresh machine. List every step.
+
+**Code style.** Do you use Prettier? ESLint? Specific naming conventions? Link to your style guide. "We use Prettier with the default config and ESLint with the Airbnb config. Run `npm run lint` before committing."
+
+**Pull request process.** Describe the ideal PR: one feature per PR, descriptive title, linked issue, screenshots for UI changes. "Before submitting, make sure tests pass, you've written tests for new features, and you've updated the docs."
+
+**Issue labels.** Explain what each label means so contributors can find good first issues:
+- `good first issue`: Perfect for new contributors, limited scope
+- `help wanted`: We want contributions on this
+- `bug`: Something is broken
+- `enhancement`: New feature or improvement
+- `documentation`: Docs need updating
+
+**Code of conduct.** Link to a standard code of conduct (Contributor Covenant). This signals that your project is a safe space for contributors.
+
+A good CONTRIBUTING.md dramatically increases the quality of contributions. Without it, you get "hey, I made some changes" with no context. With it, you get well-structured PRs that are easy to review and merge.
+
+## Issue Templates
+
+GitHub lets you create issue templates. Do this. It guides users and contributors to give you the information you need.
+
+Create at least three templates:
+
+**Bug report template:**
+```
+**Describe the bug**
+A clear description of what's wrong.
+
+**To reproduce**
+Steps to reproduce the behavior:
+1. Go to '...'
+2. Click on '...'
+3. Scroll down to '...'
+4. See error
+
+**Expected behavior**
+What you expected to happen.
+
+**Screenshots**
+If applicable, add screenshots.
+
+**Environment**
+- OS: [e.g. macOS 14.0]
+- Browser: [e.g. Chrome 120]
+- Version: [e.g. 1.0.0]
+
+**Additional context**
+Anything else relevant.
+```
+
+**Feature request template:**
+```
+**Is your feature request related to a problem?**
+A clear description of the problem. "I'm always frustrated when..."
+
+**Describe the solution you'd like**
+What you want to happen.
+
+**Describe alternatives you've considered**
+Other approaches or workarounds.
+
+**Additional context**
+Screenshots, mockups, or references.
+```
+
+**Question template:**
+```
+**What are you trying to do?**
+Describe your goal.
+
+**What have you tried?**
+Steps you've already taken.
+
+**What documentation did you check?**
+Links to docs you've read.
+```
+
+These templates save you time and frustration. A bug report without a template: "it doesn't work." A bug report with a template: "On Chrome 120 on macOS, clicking the save button shows a blank page. Console shows error X. Here's a screenshot." The difference is night and day.
+
+## The GitHub Profile as Landing Page
+
+Your GitHub profile page (`github.com/yourname`) is searchable, public, and often the first thing people see when they look you up. Make it count.
+
+A strong GitHub profile includes:
+
+**Profile README:** Create a repo called `yourname/yourname` and add a README. This becomes the content of your profile page. Use it as a landing page:
+
+```markdown
+### Hi, I'm [Your Name] 👋
+
+I build [what you build].
+
+🔭 **Current project:** [project name] — [one-line description]
+🌱 **Learning:** [what you're currently studying]
+💬 **Ask me about:** [your expertise areas]
+📫 **How to reach me:** [email or Twitter]
+⚡ **Fun fact:** [something personal]
+
+---
+
+### Pinned Repositories
+
+Pin your best repos. The ones that best represent your work.
+Each should have a clear README, a license, and screenshots.
+
+---
+
+### Recent Activity
+
+[GitHub activity feed shows your latest commits and contributions]
+```
+
+**Pinned repositories:** GitHub lets you pin up to 6 repos to your profile. Choose wisely. These are the first thing visitors see. Pin your most popular project, your current active project, and projects that show diverse skills (frontend, backend, tooling).
+
+**Contribution graph:** A green-filled contribution graph signals active development. Consistency matters. Even small commits (fixing a typo, updating a dependency) count. The graph is superficial, but first impressions are real.
+
+**Organization memberships:** If you contribute to open source projects, those contributions show on your profile. They signal that you're part of a community, not just building in isolation.
+
+## The Issue-Driven Development Pattern
+
+Use GitHub Issues to plan your work. Every feature, bug, and improvement gets an issue. Label them: `good first issue`, `help wanted`, `bug`, `enhancement`.
+
+Public issues do three things:
+- They show potential users and contributors what you're working on
+- They let users report problems and request features
+- They create a record of your decision-making process
+
+When you close an issue with a commit, link the commit. This creates a paper trail showing how you think and solve problems.
+
+Use GitHub Projects (the kanban boards) to visualize your roadmap:
+- **Backlog:** Ideas and planned features, not yet prioritized
+- **To Do:** Prioritized and ready to start
+- **In Progress:** Currently being worked on
+- **Done:** Completed and deployed
+
+This is not just project management. It's marketing. A public roadmap shows users that you're actively developing. It shows contributors where they can help. It shows investors that you have a plan.
+
+## Open Source Marketing
+
+If your project is open source (or has an open-core model), you can grow through the open source community. Here's how:
+
+**Submit to Awesome lists.** GitHub Awesome lists are curated collections of resources. Find the relevant list for your category (e.g., Awesome Node.js for a Node.js tool) and submit a PR adding your project. These lists have thousands of followers.
+
+**Share on Hacker News and Reddit.** When you have a meaningful update (not a minor bug fix), write a "Show HN" or post to r/javascript, r/python, or your relevant language community. The framing: "I built an open-source tool that [solves problem]. Here's the repo."
+
+**Respond to "alternatives to" threads.** When someone asks "What are the alternatives to [established tool]?" on Reddit, HN, or Twitter, mention your project if it's genuinely relevant. Don't spam. Be transparent: "I'm the creator, but our approach is different because [unique advantage]."
+
+**Write about your architecture.** Developers love reading about technical decisions. Write a blog post about why you chose a specific database or how you solved a tricky performance problem. Share the link on Reddit and HN. These posts often perform better than direct product promotion.
+
+**Make it easy to star.** Add a "Star this repo" badge to your README. Add a "Support this project" section. The number of stars is vanity, but it's also social proof. A project with 1,000 stars looks more credible than one with 10 stars, regardless of actual quality.
+
+## Documentation as Marketing
+
+Write docs for your project, even before it has users. Good documentation is the best marketing for developer tools.
+
+Start with:
+- A clear README
+- A CONTRIBUTING.md file
+- A CHANGELOG.md file
+
+The CHANGELOG is particularly powerful. Every update you make, write a changelog entry. When people see active development, they trust the project more. An abandoned project has no changelog.
+
+Changelog format (keep a CHANGELOG.md at the root):
+
+```markdown
+# Changelog
+
+## [1.2.0] - 2026-01-15
+
+### Added
+- New onboarding flow for first-time users (#42)
+- Dark mode support (#38)
+
+### Fixed
+- Crash when uploading files larger than 10MB (#45)
+- Incorrect pricing calculation for annual plans (#41)
+
+### Changed
+- Upgraded to Node.js 20 LTS
+- Improved search performance by 3x (#39)
+```
+
+Format: keep a CHANGELOG.md at the root. Use the Keep a Changelog convention. Link each entry to the relevant issue or PR. This creates a transparent development history.
+
+## The Hard Truth
+
+Building in public makes you vulnerable. Someone will criticize your code. Someone will point out a security issue. Someone will say your project is pointless.
+
+This is the price of visibility. The alternative is building in the dark, where nobody can criticize you because nobody knows you exist. The criticism you receive in public is feedback that helps you improve. The silence of private building helps nobody.
+
+Your code quality doesn't need to be perfect. Your README doesn't need to be eloquent. Your project doesn't need to be complete. Just start with what you have and iterate publicly.
+
+The first time you get a GitHub Issue from a stranger who found your project useful, you'll understand why building in public is worth the vulnerability. That feeling of someone discovering your work organically and caring enough to reach out is unmatched.
+
+## Your Turn
+
+Make your current project repo public. If it's already public, audit your README. Does it clearly communicate what the project does and who it's for?
+
+Open one issue describing your next planned feature. Label it. Then commit something small and push it. You're now building in public.
+
+Create your GitHub profile README. Pin your three best repositories. Add a link to your product or portfolio.
+
+Write your first changelog entry. Even if it says "Initial release — basic CRUD operations working." The habit of documenting progress is more important than the content of the first entry.
+
+## What You Learned
+
+- GitHub is your resume — every repo tells a story
+- Build in public from day one, not after you're "ready"
+- A clear README template functions as your landing page
+- Issue templates and contributing guides attract quality contributors
+- Your GitHub profile is a searchable, always-on landing page
+- Use issues to plan, track, and show your progress
+- Open source marketing through Awesome lists, HN, and Reddit works
+- Keep a changelog to show active development
+- Vulnerability is the price of visibility — pay it

@@ -1,0 +1,271 @@
+---
+title: "Chapter 6.3 — Iterating Without Breaking Things"
+description: Ship fast, sleep well.
+sidebar_label: "6.3 — Iterating Without Breaking"
+---
+
+# Iterating Without Breaking Things
+
+Your product has users. They depend on it. Every change you make risks breaking their experience. But you also need to move fast. How do you balance these?
+
+The answer is not "move slower." The answer is build systems that let you move fast without fear.
+
+## The Feature Flag Pattern
+
+Wrap every new feature in a flag. The flag defaults to off for everyone. You enable it for yourself, test it, then enable it for a small percentage of users, then gradually roll it out.
+
+```javascript
+if (featureFlags.isEnabled('new-onboarding')) {
+  // new onboarding flow
+} else {
+  // old onboarding flow
+}
+```
+
+Feature flags let you:
+- Test features in production with yourself
+- Roll out gradually to catch issues
+- Instantly disable a broken feature without redeploying
+- Run A/B tests on real users
+
+Use a simple JSON file or a service like LaunchDarkly. Start with JSON. You can upgrade later.
+
+Here's a minimal Node.js feature flag implementation:
+
+```javascript
+// flags.json
+{
+  "new-onboarding": false,
+  "dark-mode": true,
+  "ai-recommendations": false,
+  "beta-export": {
+    "enabled": true,
+    "users": ["user123", "user456"]
+  }
+}
+
+// flags.js
+const flags = require('./flags.json');
+
+function isEnabled(flagName, userId) {
+  const flag = flags[flagName];
+  if (typeof flag === 'boolean') return flag;
+  if (flag.users) return flag.users.includes(userId);
+  if (flag.percentage) return Math.random() < flag.percentage;
+  return false;
+}
+```
+
+This is ten lines of code. No SDK. No third-party service. No complexity. You can add LaunchDarkly or Unleash later when you need a dashboard and audit trail.
+
+The most important rule of feature flags: clean them up. When your new onboarding has been live for everyone for a month, remove the flag and the old code path. Feature flag debt is real. Accumulated flags make your codebase confusing and increase maintenance cost. Every quarter, review and remove stale flags.
+
+## Database Migration Patterns
+
+Database changes are the most dangerous part of iteration. A bad migration can lose data or take your site down.
+
+Follow these rules:
+- Always backup your database before running a migration
+- Make migrations additive, not destructive (add columns before removing them)
+- Run migrations during low-traffic times
+- Test migrations on a copy of your production data first
+- Never run migrations automatically on deploy
+
+The "expand-contract" pattern: first add the new column and write to both old and new columns. Then backfill data. Then switch reads to the new column. Then remove the old column. This takes longer but never breaks live traffic.
+
+Here's the expand-contract pattern in practice for renaming a column from `old_name` to `new_name`:
+
+**Phase 1 — Expand:**
+```sql
+ALTER TABLE users ADD COLUMN new_name VARCHAR(255);
+-- Update application code to write to both old_name and new_name
+-- Update reads to prefer new_name, fall back to old_name
+```
+
+**Phase 2 — Backfill:**
+```sql
+UPDATE users SET new_name = COALESCE(new_name, old_name) WHERE new_name IS NULL;
+-- Run a background job to backfill historical data
+```
+
+**Phase 3 — Switch:**
+```sql
+-- Update application code to read from new_name only, stop writing to old_name
+-- Monitor for issues
+```
+
+**Phase 4 — Contract:**
+```sql
+ALTER TABLE users DROP COLUMN old_name;
+```
+
+Each phase can be deployed independently. If something goes wrong at any step, you roll back just that phase, not the entire deployment. Zero downtime.
+
+For schema changes that could lock a large table (adding an index, adding a column with a default to a big table), use a tool like `pt-online-schema-change` (Percona Toolkit) or `gh-ost` (GitHub). These alter the table through a shadow copy, applying changes incrementally without locking.
+
+## A/B Testing for Solo Devs
+
+A/B testing isn't just for companies with data science teams. You can run simple tests that give you clear answers.
+
+The simplest approach: change one thing, measure the impact, compare to the previous week.
+
+Example: you redesign your landing page headline. Run the new headline for one week. Compare conversion rate to the previous week. Is it higher? Great, keep it. Lower? Revert. Same? It didn't matter — pick the one you like more.
+
+For a more rigorous approach with feature flags:
+
+```javascript
+// Assign user to variant based on user ID hash
+const variant = (hash(userId) % 2 === 0) ? 'control' : 'treatment';
+if (variant === 'treatment') {
+  // show new pricing page
+} else {
+  // show old pricing page
+}
+
+// Track conversion events per variant
+analytics.track('pricing_page_viewed', { variant });
+analytics.track('signup_completed', { variant });
+```
+
+Track each variant's conversion rate. After 100+ conversions per variant, compare. If one variant is more than 10% better, you have a winner. If the difference is smaller, the change probably doesn't matter enough to worry about.
+
+Solo dev A/B testing rules:
+- Only test one thing at a time
+- Let the test run for at least one full business cycle (usually one week)
+- Don't peek at results daily — you'll make decisions based on noise
+- Accept that most tests show no significant difference
+- A positive test result is a green light, not a command — still use your judgment
+
+## The "Safe Deploy" Checklist
+
+Before every deploy, run through this checklist:
+
+- [ ] All changes are behind feature flags (if risky)
+- [ ] Database migration is backward-compatible (can roll back without data loss)
+- [ ] I have tested the new code on a staging environment or production data copy
+- [ ] I know the rollback procedure (specific command or button)
+- [ ] I have checked for hardcoded URLs, API keys, or environment-specific configs
+- [ ] I have communicated the deploy to users (if it's a notable change)
+- [ ] I have checked that monitoring tools are running (Sentry, UptimeRobot)
+- [ ] I have 30 minutes after deploy to monitor for issues
+- [ ] I have cleared browser cache and tested the deployed version
+
+Print this. Staple it to your desk. Run through it before every deploy until it becomes automatic.
+
+## Monitoring Basics
+
+You can't iterate safely if you can't detect when something breaks. Monitoring is your safety net.
+
+**Log management:** Write structured logs. Include request IDs, user IDs, and timestamps. A log line like:
+
+```
+{"level":"error","message":"Payment failed","userId":"abc123","error":"stripe_invalid_card","timestamp":"2026-01-15T10:30:00Z"}
+```
+
+This is infinitely more useful than "Payment failed" with no context.
+
+Use `console.log` for development. Use a logging library like `winston` or `pino` in production. Send logs to a service like Logtail, Axiom, or just write them to rotating files.
+
+**Error tracking:** Sentry is the standard. Install the SDK for your language, configure your project in Sentry, and let it catch every error. Sentry groups similar errors, shows stack traces, and emails you when new errors appear.
+
+Set up Sentry alerts for:
+- New error types (something broke that never broke before)
+- Error rate spikes (a previously rare error is happening frequently)
+- Critical errors only (ignore 404s for random URLs)
+
+**Performance monitoring:** You don't need APM tools for your first version, but you should know your baseline. Record your page load time, API response times, and database query times. When performance degrades after a deploy, you'll notice.
+
+A simple approach: add timing middleware to your API:
+
+```javascript
+app.use((req, res, next) => {
+  const start = Date.now();
+  res.on('finish', () => {
+    const duration = Date.now() - start;
+    console.log(`${req.method} ${req.url} ${res.statusCode} ${duration}ms`);
+  });
+  next();
+});
+```
+
+When response times double, you know something's wrong before users complain.
+
+**Alerting:** Don't set up alerts for everything. Alert fatigue is real. Only alert on things that require immediate action:
+- Site is down
+- Error rate exceeds X%
+- Database is full
+- SSL certificate is expiring
+
+Everything else can wait until morning. Set up alerts to go to your phone (email, SMS, or a tool like PagerDuty's free tier).
+
+## The Rollback Plan
+
+Every deployment should be reversible. Before you deploy, know how to undo it.
+
+If you use a VPS, keep the previous version of your code. If you deploy with Docker, tag your images with version numbers. If you use a PaaS, most platforms have one-click rollback.
+
+Practice rolling back. Don't wait for an emergency. Deploy a harmless change and roll it back. Make sure the process works and is fast. A rollback that requires SSH and manual commands is a trap.
+
+Your rollback plan should answer these questions:
+- How do I revert the code to the previous version? (Specific git command, Docker tag, PaaS button)
+- How do I revert the database? (Restore from backup, run a down migration)
+- How do I verify the rollback worked? (Check the health endpoint, run a quick test)
+- How long does the rollback take? (If it takes longer than 10 minutes, simplify it)
+
+Write down the exact commands. When production is broken and your heart is racing, you won't remember the correct `docker` flags. You'll copy-paste from your notes. Make sure the notes are correct.
+
+## The Staging Paradox
+
+Most indie builders don't have a staging environment. They should. But building and maintaining staging takes time you don't have.
+
+Here's a compromise: use a branch-based workflow. Each feature gets a branch. You deploy the branch to a preview environment. You test it. Then you merge to main and deploy to production.
+
+Platforms like Vercel and Netlify give you preview deployments for free. Railway and Fly.io let you deploy branches as separate services.
+
+If you can't do preview deployments, at least test on a copy of your production data locally before you deploy.
+
+"Test on a copy of production data" means:
+1. Take a database dump from production
+2. Import it to your local database
+3. Run your migration and new code against it
+4. Verify nothing breaks
+
+This catches data-related issues that unit tests won't find. Your test database has 3 rows. Production has 30,000 rows with edge cases you never anticipated. Testing against real data changes everything.
+
+## The Hard Truth
+
+You will break things. Even with all these precautions, something will go wrong. A user will lose data. A feature will stop working. The site will go down.
+
+When this happens, the most important thing is not the bug. It's how you handle it. Acknowledge the issue publicly. Fix it quickly. Communicate clearly. Users forgive broken things. They don't forgive silence.
+
+Post-mortem template after an incident:
+1. What happened? (One sentence summary)
+2. How many users were affected?
+3. What was the root cause?
+4. How did we fix it?
+5. What will we do to prevent this from happening again?
+6. When will the fix be deployed?
+
+Share this with your users if the incident was visible to them. Transparency builds trust. "We broke something, here's what happened, here's how we fixed it, here's why it won't happen again" is more reassuring than silence followed by "we fixed a bug."
+
+## Your Turn
+
+Add feature flags to your next feature. Use a simple JSON configuration. Deploy the feature with the flag off. Enable it for yourself. Test it. Then enable it for 10% of users.
+
+After you ship, document your rollback process. If you don't have one, create it now.
+
+Set up error tracking with Sentry if you haven't already. It's free and takes 15 minutes. Future you will thank past you every time an error happens.
+
+Run through the safe deploy checklist before your next three deploys. After that, it should be habit.
+
+## What You Learned
+
+- Feature flags let you test in production safely
+- Use the expand-contract pattern for zero-downtime database migrations
+- Run simple A/B tests using feature flags and user cohorts
+- Use a safe deploy checklist to prevent mistakes
+- Set up monitoring (logs, error tracking, performance baselines) before you need it
+- Every deployment needs a tested rollback plan
+- Database migrations should be additive and backward-compatible
+- Test against production data to catch edge cases
+- You will break things — handling it well is what matters

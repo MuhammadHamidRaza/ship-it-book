@@ -1,0 +1,118 @@
+---
+title: "3.3 — Research Before Architecture"
+description: How to understand your domain before designing your system.
+sidebar_label: "3.3 — Research Before Architecture"
+---
+
+# Research Before Architecture
+
+You've validated the problem. Users have confirmed they need a solution. Now you're tempted to open your code editor and start architecting the system. Not yet.
+
+Before you design your architecture, you need to understand your domain deeply. Architecture decisions made without domain knowledge are guesses. And guessing leads to rewrites.
+
+## Why Domain Research Matters
+
+Your architecture must model the real world. If you don't understand the real world's constraints, edge cases, and workflows, your architecture will model the wrong thing.
+
+Every time I've had to rewrite a system, it was because I didn't understand the domain well enough before I started coding. I built abstractions that didn't match reality. I chose patterns that didn't fit the workflow.
+
+Domain research prevents this. It gives you the information you need to make architectural decisions that last.
+
+## The Domain Research Process
+
+### Step 1: Map the Workflow
+
+Document every step of the process you're automating or improving. Use a flowchart, user journey map, or simple list. Include:
+- Every action someone takes
+- Every decision point
+- Every handoff between people or systems
+- Every data point created or consumed
+- Every exception or edge case
+
+Don't assume you know the workflow. Watch someone do it. Take notes. Ask "why" at every step.
+
+### Step 2: Identify the Entities
+
+From your workflow map, extract the entities: the key objects in your system. For a project management tool, entities might be: Project, Task, User, Comment, Attachment.
+
+For each entity, list:
+- What attributes does it have?
+- How does it relate to other entities?
+- What lifecycle does it go through?
+- Who can create, read, update, delete it?
+
+### Step 3: Find the Constraints
+
+Constraints shape architecture more than features. Identify:
+- Performance constraints: How fast does this need to be?
+- Scale constraints: How many users? How much data?
+- Regulatory constraints: Any compliance requirements?
+- Integration constraints: What existing systems must this work with?
+- Device constraints: What browsers, devices, or networks must be supported?
+
+### Step 4: Research Existing Solutions
+
+Before designing your own architecture, study how others have solved similar problems. Look at:
+- Open-source projects that solve similar problems
+- Competitor products and their architecture (inferred from behavior)
+- Published case studies and architecture blog posts
+- Relevant design patterns and their trade-offs
+
+You don't need to copy their architecture. But understanding their choices helps you make better ones.
+
+## The Research Document
+
+Create a research document before you write any architecture. Include:
+- Domain glossary: Every term and what it means
+- Workflow diagrams: Key processes
+- Entity relationship diagram: How data relates
+- Constraints and requirements: Non-negotiable boundaries
+- Open questions: Things you're uncertain about
+- Research sources: Links and references
+
+This document is your architecture's foundation. Share it with someone who knows the domain. Ask them what you missed.
+
+## When You're Ready
+
+You're ready to design architecture when you can:
+- Explain the domain to a non-technical person in 5 minutes
+- Draw the core entities and their relationships from memory
+- List the top 5 constraints that will shape your architecture
+- Identify the 3 riskiest technical decisions you need to make
+
+If you can't do all four, you need more research.
+
+## The Hard Truth
+
+Domain research feels unproductive. You're not writing code. You're not designing APIs. You're just learning. It feels like you're delaying the real work.
+
+But domain research is the most productive thing you can do. Every hour you spend understanding the domain saves you days of refactoring later. The best architectural decisions come from deep domain knowledge, not technical brilliance.
+
+## Your Turn
+
+Take your validated problem. Spend two hours doing domain research. Map the workflow. Identify the entities. List the constraints. Write a research document.
+
+Then find someone who works in this domain and ask them to review it. Revise based on their feedback.
+
+## End-of-Chapter Checklist
+
+- [ ] I've mapped the core workflow for my validated problem
+- [ ] I've identified the key entities and their relationships
+- [ ] I've listed the top 5 constraints that will shape my architecture
+- [ ] I've studied at least 2 existing solutions in this domain
+- [ ] I've written a research document with glossary, workflows, and entities
+- [ ] I can explain the domain to a non-technical person in 5 minutes
+
+## What You Learned
+
+- Architecture decisions without domain knowledge are guesses
+- Research process: map workflow → identify entities → find constraints → study existing solutions
+- A research document captures your domain understanding
+- You're ready to design when you can explain, draw, list, and identify risks
+- Domain research saves days of refactoring later
+
+## What's Next
+
+You understand the domain. You've documented the workflows and entities. Now you're ready to design the architecture itself — with the right principles and trade-offs.
+
+**Next: [Part 4 — Build It →](../part-4-build-it/)**
