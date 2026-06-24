@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-part-3-design-the-solution/chapter-3-3-research-before-architecture" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.10.1">
+<title data-rh="true">3.3 — Research Before Architecture | Ship It</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://MuhammadHamidRaza.github.io/ship-it-book/img/og-image.png"><meta data-rh="true" name="twitter:image" content="https://MuhammadHamidRaza.github.io/ship-it-book/img/og-image.png"><meta data-rh="true" property="og:url" content="https://MuhammadHamidRaza.github.io/ship-it-book/part-3-design-the-solution/chapter-3-3-research-before-architecture"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="author" content="Muhammad Hamid Raza"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="3.3 — Research Before Architecture | Ship It"><meta data-rh="true" name="description" content="How to understand your domain before designing your system."><meta data-rh="true" property="og:description" content="How to understand your domain before designing your system."><link data-rh="true" rel="icon" href="/ship-it-book/img/logo.svg"><link data-rh="true" rel="canonical" href="https://MuhammadHamidRaza.github.io/ship-it-book/part-3-design-the-solution/chapter-3-3-research-before-architecture"><link data-rh="true" rel="alternate" href="https://MuhammadHamidRaza.github.io/ship-it-book/part-3-design-the-solution/chapter-3-3-research-before-architecture" hreflang="en"><link data-rh="true" rel="alternate" href="https://MuhammadHamidRaza.github.io/ship-it-book/part-3-design-the-solution/chapter-3-3-research-before-architecture" hreflang="x-default"><link rel="stylesheet" href="/ship-it-book/assets/css/styles.afbe9f1e.css">
+<script src="/ship-it-book/assets/js/runtime~main.56ea74a4.js" defer="defer"></script>
+<script src="/ship-it-book/assets/js/main.beb051e4.js" defer="defer"></script>
+</head>
+<body>
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>document.documentElement.setAttribute("data-theme","dark"),document.documentElement.setAttribute("data-theme-choice","dark"),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div style="position:fixed;top:0;left:0;width:100%;height:3px;z-index:9999;background:rgba(139, 92, 246, 0.1)"><div style="height:100%;width:0%;background:linear-gradient(90deg, #6366f1, #8b5cf6);transition:width 0.15s ease-out;border-radius:0 2px 2px 0;box-shadow:0 0 12px rgba(139, 92, 246, 0.4)"></div></div><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/ship-it-book/"><b class="navbar__title text--truncate">Ship It</b></a><a class="navbar__item navbar__link" href="/ship-it-book/introduction/">Book</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/MuhammadHamidRaza/ship-it-book" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link header-github-link" aria-label="GitHub repository"></a><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><main class="docMainContainer_TBSr docMainContainerEnhanced_lQrH"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Research Before Architecture</h1></header>
+<p>You&#x27;ve validated the problem. Users have confirmed they need a solution. Now you&#x27;re tempted to open your code editor and start architecting the system. Not yet.</p>
+<p>Before you design your architecture, you need to understand your domain deeply. Architecture decisions made without domain knowledge are guesses. And guessing leads to rewrites.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="why-domain-research-matters">Why Domain Research Matters<a href="#why-domain-research-matters" class="hash-link" aria-label="Direct link to Why Domain Research Matters" title="Direct link to Why Domain Research Matters" translate="no">​</a></h2>
+<p>Your architecture must model the real world. If you don&#x27;t understand the real world&#x27;s constraints, edge cases, and workflows, your architecture will model the wrong thing.</p>
+<p>Every time I&#x27;ve had to rewrite a system, it was because I didn&#x27;t understand the domain well enough before I started coding. I built abstractions that didn&#x27;t match reality. I chose patterns that didn&#x27;t fit the workflow.</p>
+<p>Domain research prevents this. It gives you the information you need to make architectural decisions that last.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="the-domain-research-process">The Domain Research Process<a href="#the-domain-research-process" class="hash-link" aria-label="Direct link to The Domain Research Process" title="Direct link to The Domain Research Process" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="step-1-map-the-workflow">Step 1: Map the Workflow<a href="#step-1-map-the-workflow" class="hash-link" aria-label="Direct link to Step 1: Map the Workflow" title="Direct link to Step 1: Map the Workflow" translate="no">​</a></h3>
+<p>Document every step of the process you&#x27;re automating or improving. Use a flowchart, user journey map, or simple list. Include:</p>
+<ul>
+<li class="">Every action someone takes</li>
+<li class="">Every decision point</li>
+<li class="">Every handoff between people or systems</li>
+<li class="">Every data point created or consumed</li>
+<li class="">Every exception or edge case</li>
+</ul>
+<p>Don&#x27;t assume you know the workflow. Watch someone do it. Take notes. Ask &quot;why&quot; at every step.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="step-2-identify-the-entities">Step 2: Identify the Entities<a href="#step-2-identify-the-entities" class="hash-link" aria-label="Direct link to Step 2: Identify the Entities" title="Direct link to Step 2: Identify the Entities" translate="no">​</a></h3>
+<p>From your workflow map, extract the entities: the key objects in your system. For a project management tool, entities might be: Project, Task, User, Comment, Attachment.</p>
+<p>For each entity, list:</p>
+<ul>
+<li class="">What attributes does it have?</li>
+<li class="">How does it relate to other entities?</li>
+<li class="">What lifecycle does it go through?</li>
+<li class="">Who can create, read, update, delete it?</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="step-3-find-the-constraints">Step 3: Find the Constraints<a href="#step-3-find-the-constraints" class="hash-link" aria-label="Direct link to Step 3: Find the Constraints" title="Direct link to Step 3: Find the Constraints" translate="no">​</a></h3>
+<p>Constraints shape architecture more than features. Identify:</p>
+<ul>
+<li class="">Performance constraints: How fast does this need to be?</li>
+<li class="">Scale constraints: How many users? How much data?</li>
+<li class="">Regulatory constraints: Any compliance requirements?</li>
+<li class="">Integration constraints: What existing systems must this work with?</li>
+<li class="">Device constraints: What browsers, devices, or networks must be supported?</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="step-4-research-existing-solutions">Step 4: Research Existing Solutions<a href="#step-4-research-existing-solutions" class="hash-link" aria-label="Direct link to Step 4: Research Existing Solutions" title="Direct link to Step 4: Research Existing Solutions" translate="no">​</a></h3>
+<p>Before designing your own architecture, study how others have solved similar problems. Look at:</p>
+<ul>
+<li class="">Open-source projects that solve similar problems</li>
+<li class="">Competitor products and their architecture (inferred from behavior)</li>
+<li class="">Published case studies and architecture blog posts</li>
+<li class="">Relevant design patterns and their trade-offs</li>
+</ul>
+<p>You don&#x27;t need to copy their architecture. But understanding their choices helps you make better ones.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="the-research-document">The Research Document<a href="#the-research-document" class="hash-link" aria-label="Direct link to The Research Document" title="Direct link to The Research Document" translate="no">​</a></h2>
+<p>Create a research document before you write any architecture. Include:</p>
+<ul>
+<li class="">Domain glossary: Every term and what it means</li>
+<li class="">Workflow diagrams: Key processes</li>
+<li class="">Entity relationship diagram: How data relates</li>
+<li class="">Constraints and requirements: Non-negotiable boundaries</li>
+<li class="">Open questions: Things you&#x27;re uncertain about</li>
+<li class="">Research sources: Links and references</li>
+</ul>
+<p>This document is your architecture&#x27;s foundation. Share it with someone who knows the domain. Ask them what you missed.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="when-youre-ready">When You&#x27;re Ready<a href="#when-youre-ready" class="hash-link" aria-label="Direct link to When You&#x27;re Ready" title="Direct link to When You&#x27;re Ready" translate="no">​</a></h2>
+<p>You&#x27;re ready to design architecture when you can:</p>
+<ul>
+<li class="">Explain the domain to a non-technical person in 5 minutes</li>
+<li class="">Draw the core entities and their relationships from memory</li>
+<li class="">List the top 5 constraints that will shape your architecture</li>
+<li class="">Identify the 3 riskiest technical decisions you need to make</li>
+</ul>
+<p>If you can&#x27;t do all four, you need more research.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="the-hard-truth">The Hard Truth<a href="#the-hard-truth" class="hash-link" aria-label="Direct link to The Hard Truth" title="Direct link to The Hard Truth" translate="no">​</a></h2>
+<p>Domain research feels unproductive. You&#x27;re not writing code. You&#x27;re not designing APIs. You&#x27;re just learning. It feels like you&#x27;re delaying the real work.</p>
+<p>But domain research is the most productive thing you can do. Every hour you spend understanding the domain saves you days of refactoring later. The best architectural decisions come from deep domain knowledge, not technical brilliance.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="your-turn">Your Turn<a href="#your-turn" class="hash-link" aria-label="Direct link to Your Turn" title="Direct link to Your Turn" translate="no">​</a></h2>
+<p>Take your validated problem. Spend two hours doing domain research. Map the workflow. Identify the entities. List the constraints. Write a research document.</p>
+<p>Then find someone who works in this domain and ask them to review it. Revise based on their feedback.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="end-of-chapter-checklist">End-of-Chapter Checklist<a href="#end-of-chapter-checklist" class="hash-link" aria-label="Direct link to End-of-Chapter Checklist" title="Direct link to End-of-Chapter Checklist" translate="no">​</a></h2>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->I&#x27;ve mapped the core workflow for my validated problem</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->I&#x27;ve identified the key entities and their relationships</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->I&#x27;ve listed the top 5 constraints that will shape my architecture</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->I&#x27;ve studied at least 2 existing solutions in this domain</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->I&#x27;ve written a research document with glossary, workflows, and entities</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->I can explain the domain to a non-technical person in 5 minutes</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="what-you-learned">What You Learned<a href="#what-you-learned" class="hash-link" aria-label="Direct link to What You Learned" title="Direct link to What You Learned" translate="no">​</a></h2>
+<ul>
+<li class="">Architecture decisions without domain knowledge are guesses</li>
+<li class="">Research process: map workflow → identify entities → find constraints → study existing solutions</li>
+<li class="">A research document captures your domain understanding</li>
+<li class="">You&#x27;re ready to design when you can explain, draw, list, and identify risks</li>
+<li class="">Domain research saves days of refactoring later</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="whats-next">What&#x27;s Next<a href="#whats-next" class="hash-link" aria-label="Direct link to What&#x27;s Next" title="Direct link to What&#x27;s Next" translate="no">​</a></h2>
+<p>You understand the domain. You&#x27;ve documented the workflows and entities. Now you&#x27;re ready to design the architecture itself — with the right principles and trade-offs.</p>
+<p><strong>Next: <a class="" href="/ship-it-book/part-4-build-it/">Part 4 — Build It →</a></strong></p></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#why-domain-research-matters" class="table-of-contents__link toc-highlight">Why Domain Research Matters</a></li><li><a href="#the-domain-research-process" class="table-of-contents__link toc-highlight">The Domain Research Process</a><ul><li><a href="#step-1-map-the-workflow" class="table-of-contents__link toc-highlight">Step 1: Map the Workflow</a></li><li><a href="#step-2-identify-the-entities" class="table-of-contents__link toc-highlight">Step 2: Identify the Entities</a></li><li><a href="#step-3-find-the-constraints" class="table-of-contents__link toc-highlight">Step 3: Find the Constraints</a></li><li><a href="#step-4-research-existing-solutions" class="table-of-contents__link toc-highlight">Step 4: Research Existing Solutions</a></li></ul></li><li><a href="#the-research-document" class="table-of-contents__link toc-highlight">The Research Document</a></li><li><a href="#when-youre-ready" class="table-of-contents__link toc-highlight">When You&#39;re Ready</a></li><li><a href="#the-hard-truth" class="table-of-contents__link toc-highlight">The Hard Truth</a></li><li><a href="#your-turn" class="table-of-contents__link toc-highlight">Your Turn</a></li><li><a href="#end-of-chapter-checklist" class="table-of-contents__link toc-highlight">End-of-Chapter Checklist</a></li><li><a href="#what-you-learned" class="table-of-contents__link toc-highlight">What You Learned</a></li><li><a href="#whats-next" class="table-of-contents__link toc-highlight">What&#39;s Next</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Parts</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/ship-it-book/introduction/">Introduction</a></li><li class="footer__item"><a class="footer__link-item" href="/ship-it-book/part-1-builder-mindset/">Part 1: The Builder Mindset</a></li><li class="footer__item"><a class="footer__link-item" href="/ship-it-book/part-2-find-the-problem/">Part 2: Find &amp; Validate the Problem</a></li><li class="footer__item"><a class="footer__link-item" href="/ship-it-book/part-3-design-the-solution/">Part 3: Design the Solution</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">More Parts</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/ship-it-book/part-4-build-it/">Part 4: Build It</a></li><li class="footer__item"><a class="footer__link-item" href="/ship-it-book/part-5-deploy-and-show/">Part 5: Deploy &amp; Show</a></li><li class="footer__item"><a class="footer__link-item" href="/ship-it-book/part-6-listen-and-iterate/">Part 6: Listen &amp; Iterate</a></li><li class="footer__item"><a class="footer__link-item" href="/ship-it-book/part-7-build-in-public/">Part 7: Build in Public</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">About</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/ship-it-book/#author">Author</a></li><li class="footer__item"><a href="https://github.com/MuhammadHamidRaza" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">© 2026 Muhammad Hamid Raza. All rights reserved.</div></div></div></footer></div>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-part-2-find-the-problem/chapter-2-4-validate-before-you-build" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.10.1">
+<title data-rh="true">2.4 — Validate Before You Build | Ship It</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://MuhammadHamidRaza.github.io/ship-it-book/img/og-image.png"><meta data-rh="true" name="twitter:image" content="https://MuhammadHamidRaza.github.io/ship-it-book/img/og-image.png"><meta data-rh="true" property="og:url" content="https://MuhammadHamidRaza.github.io/ship-it-book/part-2-find-the-problem/chapter-2-4-validate-before-you-build"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="author" content="Muhammad Hamid Raza"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="2.4 — Validate Before You Build | Ship It"><meta data-rh="true" name="description" content="How to test your assumptions before writing code."><meta data-rh="true" property="og:description" content="How to test your assumptions before writing code."><link data-rh="true" rel="icon" href="/ship-it-book/img/logo.svg"><link data-rh="true" rel="canonical" href="https://MuhammadHamidRaza.github.io/ship-it-book/part-2-find-the-problem/chapter-2-4-validate-before-you-build"><link data-rh="true" rel="alternate" href="https://MuhammadHamidRaza.github.io/ship-it-book/part-2-find-the-problem/chapter-2-4-validate-before-you-build" hreflang="en"><link data-rh="true" rel="alternate" href="https://MuhammadHamidRaza.github.io/ship-it-book/part-2-find-the-problem/chapter-2-4-validate-before-you-build" hreflang="x-default"><link rel="stylesheet" href="/ship-it-book/assets/css/styles.afbe9f1e.css">
+<script src="/ship-it-book/assets/js/runtime~main.56ea74a4.js" defer="defer"></script>
+<script src="/ship-it-book/assets/js/main.beb051e4.js" defer="defer"></script>
+</head>
+<body>
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>document.documentElement.setAttribute("data-theme","dark"),document.documentElement.setAttribute("data-theme-choice","dark"),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div style="position:fixed;top:0;left:0;width:100%;height:3px;z-index:9999;background:rgba(139, 92, 246, 0.1)"><div style="height:100%;width:0%;background:linear-gradient(90deg, #6366f1, #8b5cf6);transition:width 0.15s ease-out;border-radius:0 2px 2px 0;box-shadow:0 0 12px rgba(139, 92, 246, 0.4)"></div></div><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/ship-it-book/"><b class="navbar__title text--truncate">Ship It</b></a><a class="navbar__item navbar__link" href="/ship-it-book/introduction/">Book</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/MuhammadHamidRaza/ship-it-book" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link header-github-link" aria-label="GitHub repository"></a><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><main class="docMainContainer_TBSr docMainContainerEnhanced_lQrH"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Validate Before You Build</h1></header>
+<p>You have a problem. You have a potential solution. You want to open your editor and start building. Stop. You haven&#x27;t validated anything yet.</p>
+<p>Validation is the step between identifying a problem and building a solution. It&#x27;s where you test your assumptions with real evidence before committing time and code. Most developers skip this step. That&#x27;s why most products fail.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="the-validation-hierarchy">The Validation Hierarchy<a href="#the-validation-hierarchy" class="hash-link" aria-label="Direct link to The Validation Hierarchy" title="Direct link to The Validation Hierarchy" translate="no">​</a></h2>
+<p>Not all validation is equal. From weakest to strongest:</p>
+<ol>
+<li class=""><strong>I think this is a problem</strong> — Your assumption, untested</li>
+<li class=""><strong>I found people complaining about it online</strong> — Weak signal (people complain about everything)</li>
+<li class=""><strong>I talked to 5 people who say they have this problem</strong> — Better, but words are cheap</li>
+<li class=""><strong>People tried a prototype and asked for more</strong> — Strong signal</li>
+<li class=""><strong>People paid for a pre-order or early access</strong> — Strongest signal before building</li>
+</ol>
+<p>Most developers stop at level 1 or 2. They see a few Reddit threads and declare the problem validated. Real validation starts at level 4.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="the-problem-interview">The Problem Interview<a href="#the-problem-interview" class="hash-link" aria-label="Direct link to The Problem Interview" title="Direct link to The Problem Interview" translate="no">​</a></h2>
+<p>The most effective validation tool is the problem interview. Talk to 10-15 people who might have the problem. Don&#x27;t pitch your solution. Ask about their experience.</p>
+<p>Effective questions:</p>
+<ul>
+<li class="">&quot;Walk me through how you handle [situation] today.&quot;</li>
+<li class="">&quot;What&#x27;s the most frustrating part of that process?&quot;</li>
+<li class="">&quot;How much time/money does this problem cost you?&quot;</li>
+<li class="">&quot;Have you tried to solve this before? What happened?&quot;</li>
+<li class="">&quot;If you could wave a magic wand, what would change?&quot;</li>
+</ul>
+<p>Red flags:</p>
+<ul>
+<li class="">&quot;I&#x27;d definitely use that!&quot; (they&#x27;re being nice)</li>
+<li class="">&quot;Sounds interesting.&quot; (they&#x27;re being polite)</li>
+<li class="">&quot;Let me think about it.&quot; (they&#x27;re avoiding saying no)</li>
+</ul>
+<p>Green flags:</p>
+<ul>
+<li class="">&quot;This is such a pain, I was literally just dealing with it.&quot;</li>
+<li class="">&quot;How soon can I try it?&quot;</li>
+<li class="">&quot;How much does it cost?&quot;</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="the-smoke-test">The Smoke Test<a href="#the-smoke-test" class="hash-link" aria-label="Direct link to The Smoke Test" title="Direct link to The Smoke Test" translate="no">​</a></h2>
+<p>Before building anything, test demand with a smoke test. Create a landing page that describes your solution and asks people to sign up or pre-order. Drive traffic to it from relevant communities.</p>
+<p>If people click and sign up, you have demand. If nobody signs up, you either have a messaging problem or a demand problem. Figure out which before building.</p>
+<p>A good smoke test page includes:</p>
+<ul>
+<li class="">A clear headline describing the problem</li>
+<li class="">A one-sentence description of the solution</li>
+<li class="">A call-to-action button (&quot;Get Early Access&quot; or &quot;Pre-order Now&quot;)</li>
+<li class="">Social proof if you have any</li>
+</ul>
+<p>No code required. Use Carrd, Gumroad, or a simple HTML page.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="the-concierge-mvp">The Concierge MVP<a href="#the-concierge-mvp" class="hash-link" aria-label="Direct link to The Concierge MVP" title="Direct link to The Concierge MVP" translate="no">​</a></h2>
+<p>Before building software, solve the problem manually. Offer to help someone with their problem using whatever tools are available — spreadsheets, email, manual work.</p>
+<p>A concierge MVP tests whether your solution creates value without building any technology. If people are willing to use a manual version, they&#x27;ll use an automated one.</p>
+<p>Example: Before building his scheduling tool, the founder manually scheduled appointments for users. He learned exactly what the software needed to do by doing it himself.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="the-fake-door-test">The Fake Door Test<a href="#the-fake-door-test" class="hash-link" aria-label="Direct link to The Fake Door Test" title="Direct link to The Fake Door Test" translate="no">​</a></h2>
+<p>The fake door test places a button or link in your UI that leads to a &quot;coming soon&quot; page. You measure how many people click it. If nobody clicks, either they don&#x27;t see it or they don&#x27;t want it. If people click and are disappointed, you have validated demand.</p>
+<p>This works well for features you&#x27;re considering adding. Add a button. Measure clicks. Decide whether to build.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="the-hard-truth">The Hard Truth<a href="#the-hard-truth" class="hash-link" aria-label="Direct link to The Hard Truth" title="Direct link to The Hard Truth" translate="no">​</a></h2>
+<p>Validation is uncomfortable because it might prove you wrong. Developers avoid it because they&#x27;d rather build something that fails than learn that their idea was bad.</p>
+<p>But failing after building takes months. Failing after validating takes days. The faster you learn your idea is wrong, the faster you can find one that&#x27;s right.</p>
+<p>Validation doesn&#x27;t guarantee success. But skipping validation guarantees that you&#x27;re building on assumptions, not evidence.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="your-turn">Your Turn<a href="#your-turn" class="hash-link" aria-label="Direct link to Your Turn" title="Direct link to Your Turn" translate="no">​</a></h2>
+<p>Pick your riskiest assumption. Design a validation test for it. Use one of the methods above. Set a deadline of one week to complete the test. Don&#x27;t write a single line of product code until you have results.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="end-of-chapter-checklist">End-of-Chapter Checklist<a href="#end-of-chapter-checklist" class="hash-link" aria-label="Direct link to End-of-Chapter Checklist" title="Direct link to End-of-Chapter Checklist" translate="no">​</a></h2>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->I understand the validation hierarchy: think → see → talk → try → pay</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->I&#x27;ve framed my riskiest assumption as a testable hypothesis</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->I&#x27;ve written a problem interview script to test that assumption</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->I&#x27;ve designed a smoke test or landing page to measure demand</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->I&#x27;ve committed to running my validation test within one week</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->I will not write any product code until I have evidence</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="what-you-learned">What You Learned<a href="#what-you-learned" class="hash-link" aria-label="Direct link to What You Learned" title="Direct link to What You Learned" translate="no">​</a></h2>
+<ul>
+<li class="">Validation tests assumptions with evidence before you build</li>
+<li class="">The validation hierarchy: think → see complaints → talk → try → pay</li>
+<li class="">Problem interviews reveal whether people actually have the problem</li>
+<li class="">Smoke tests measure demand before you build</li>
+<li class="">Concierge MVPs test value without building software</li>
+<li class="">Failed validation saves months of wasted work</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="whats-next">What&#x27;s Next<a href="#whats-next" class="hash-link" aria-label="Direct link to What&#x27;s Next" title="Direct link to What&#x27;s Next" translate="no">​</a></h2>
+<p>You&#x27;ve validated that people actually want what you&#x27;re building. Now it&#x27;s time to apply systems thinking and design the solution.</p>
+<p><strong>Next: <a class="" href="/ship-it-book/part-3-design-the-solution/">Part 3 — Design the Solution →</a></strong></p></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#the-validation-hierarchy" class="table-of-contents__link toc-highlight">The Validation Hierarchy</a></li><li><a href="#the-problem-interview" class="table-of-contents__link toc-highlight">The Problem Interview</a></li><li><a href="#the-smoke-test" class="table-of-contents__link toc-highlight">The Smoke Test</a></li><li><a href="#the-concierge-mvp" class="table-of-contents__link toc-highlight">The Concierge MVP</a></li><li><a href="#the-fake-door-test" class="table-of-contents__link toc-highlight">The Fake Door Test</a></li><li><a href="#the-hard-truth" class="table-of-contents__link toc-highlight">The Hard Truth</a></li><li><a href="#your-turn" class="table-of-contents__link toc-highlight">Your Turn</a></li><li><a href="#end-of-chapter-checklist" class="table-of-contents__link toc-highlight">End-of-Chapter Checklist</a></li><li><a href="#what-you-learned" class="table-of-contents__link toc-highlight">What You Learned</a></li><li><a href="#whats-next" class="table-of-contents__link toc-highlight">What&#39;s Next</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Parts</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/ship-it-book/introduction/">Introduction</a></li><li class="footer__item"><a class="footer__link-item" href="/ship-it-book/part-1-builder-mindset/">Part 1: The Builder Mindset</a></li><li class="footer__item"><a class="footer__link-item" href="/ship-it-book/part-2-find-the-problem/">Part 2: Find &amp; Validate the Problem</a></li><li class="footer__item"><a class="footer__link-item" href="/ship-it-book/part-3-design-the-solution/">Part 3: Design the Solution</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">More Parts</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/ship-it-book/part-4-build-it/">Part 4: Build It</a></li><li class="footer__item"><a class="footer__link-item" href="/ship-it-book/part-5-deploy-and-show/">Part 5: Deploy &amp; Show</a></li><li class="footer__item"><a class="footer__link-item" href="/ship-it-book/part-6-listen-and-iterate/">Part 6: Listen &amp; Iterate</a></li><li class="footer__item"><a class="footer__link-item" href="/ship-it-book/part-7-build-in-public/">Part 7: Build in Public</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">About</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/ship-it-book/#author">Author</a></li><li class="footer__item"><a href="https://github.com/MuhammadHamidRaza" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">© 2026 Muhammad Hamid Raza. All rights reserved.</div></div></div></footer></div>
+</body>
+</html>
