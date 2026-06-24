@@ -5,7 +5,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 const config: Config = {
   title: 'Ship It',
   tagline: 'By Muhammad Hamid Raza — From First Idea to First User, No MBA Required.',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/logo.svg',
 
   url: 'https://MuhammadHamidRaza.github.io',
   baseUrl: '/ship-it-book/',
