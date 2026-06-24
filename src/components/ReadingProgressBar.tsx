@@ -23,15 +23,15 @@ export default function ReadingProgressBar() {
       width: '100%',
       height: '3px',
       zIndex: 9999,
-      background: 'rgba(245, 158, 11, 0.1)',
+      background: 'rgba(139, 92, 246, 0.1)',
     }}>
       <div style={{
         height: '100%',
         width: `${width}%`,
-        background: 'linear-gradient(90deg, #f59e0b, #fbbf24)',
+        background: 'linear-gradient(90deg, #6366f1, #8b5cf6)',
         transition: 'width 0.15s ease-out',
         borderRadius: '0 2px 2px 0',
-        boxShadow: '0 0 12px rgba(245, 158, 11, 0.4)',
+        boxShadow: '0 0 12px rgba(139, 92, 246, 0.4)',
       }} />
     </div>
   );
