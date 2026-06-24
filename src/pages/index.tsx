@@ -83,7 +83,7 @@ function AuthorSection() {
                 <div className={styles.authorImageWrapper}>
                   <div className={styles.authorImageGlow} />
                   <img
-                    src="/img/myimage.png"
+                    src="/ship-it-book/img/myimage.png"
                     alt="Muhammad Hamid Raza"
                     className={styles.authorImage}
                   />
