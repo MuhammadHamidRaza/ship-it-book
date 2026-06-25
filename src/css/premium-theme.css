@@ -9,6 +9,7 @@
   --background: oklch(14% 0 0);
   --foreground: oklch(95% .01 80);
   --muted-foreground: oklch(70% .02 80);
+  --radius: 0.5rem;
 }
 
 /* CHECKLIST */

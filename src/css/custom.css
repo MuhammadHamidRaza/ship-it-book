@@ -479,3 +479,269 @@ body:has(.homepage-root) .footer {
 .homepage-root button {
   font-family: 'Work Sans', ui-sans-serif, system-ui, sans-serif;
 }
+
+/* ======================== */
+/* CHAPTER CONTENT ENHANCEMENTS */
+/* ======================== */
+
+/* Paper grain on doc pages */
+.theme-doc-markdown {
+  position: relative;
+}
+
+.theme-doc-markdown::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  mix-blend-mode: overlay;
+  opacity: .08;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+}
+
+.theme-doc-markdown > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Gold underline on first h1 */
+.theme-doc-markdown h1:first-of-type {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 2.5rem;
+}
+
+.theme-doc-markdown h1:first-of-type::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold-deep), var(--gold), var(--gold-soft));
+  margin-top: .75rem;
+}
+
+/* Styled checklists (task lists) */
+.markdown .contains-task-list {
+  list-style: none;
+  padding: 1.5rem 1.5rem 1.5rem 1rem;
+  margin: 1.5rem 0;
+  background: var(--card);
+  border-radius: var(--ifm-global-radius);
+  border: 1px solid var(--hairline);
+  border-left: 4px solid var(--gold);
+}
+
+.markdown .contains-task-list:hover {
+  box-shadow: 0 4px 16px rgba(201, 168, 76, .12);
+}
+
+.markdown .task-list-item {
+  padding: .6rem 0 .6rem 2rem;
+  position: relative;
+  border-bottom: 1px solid var(--hairline);
+  font-size: .95rem;
+  line-height: 1.6;
+  color: var(--muted-foreground);
+}
+
+.markdown .task-list-item:last-child {
+  border-bottom: none;
+}
+
+.markdown .task-list-item input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  position: absolute;
+  left: 0;
+  top: .75rem;
+  width: 1.1rem;
+  height: 1.1rem;
+  border: 2px solid var(--gold);
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all .2s;
+}
+
+.markdown .task-list-item input[type="checkbox"]:checked {
+  background: var(--gold);
+  border-color: var(--gold);
+}
+
+.markdown .task-list-item input[type="checkbox"]:checked::after {
+  content: '✓';
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--background);
+  font-size: .75rem;
+  font-weight: 700;
+}
+
+/* Key Takeaways section styling */
+.markdown h2 + ul:not(.contains-task-list) {
+  background: linear-gradient(135deg, var(--gold-deep), var(--gold), var(--gold-soft));
+  background-size: 200% 200%;
+  animation: foilShift 6s ease infinite;
+  color: var(--background);
+  border-radius: var(--ifm-global-radius);
+  padding: 1.75rem 1.75rem 1.75rem 2.5rem;
+  margin: 1.5rem 0;
+  list-style: none;
+  box-shadow: 0 4px 16px rgba(201, 168, 76, .3);
+  transition: all .3s;
+}
+
+.markdown h2 + ul:not(.contains-task-list):hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(201, 168, 76, .35);
+}
+
+.markdown h2 + ul:not(.contains-task-list) li {
+  color: var(--background);
+  font-size: 1rem;
+  line-height: 1.7;
+  padding: .2rem 0;
+  position: relative;
+  font-weight: 500;
+}
+
+.markdown h2 + ul:not(.contains-task-list) li::before {
+  content: '→';
+  position: absolute;
+  left: -1.2rem;
+  opacity: .7;
+}
+
+/* Code block gold accent */
+.prism-code {
+  position: relative;
+}
+
+.prism-code::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--gold-deep), var(--gold), var(--gold-soft));
+  border-radius: var(--ifm-global-radius) 0 0 var(--ifm-global-radius);
+}
+
+/* Blockquote styling */
+.markdown blockquote {
+  border-left: 3px solid var(--gold);
+  background: var(--card);
+  padding: 1.25rem 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 0 var(--ifm-global-radius) var(--ifm-global-radius) 0;
+}
+
+.markdown blockquote p {
+  margin-bottom: 0;
+  font-size: 1.05rem;
+  font-style: italic;
+  color: var(--fg);
+}
+
+/* Image styling */
+.markdown img {
+  border-radius: var(--ifm-global-radius);
+  border: 1px solid var(--hairline);
+  margin: 1.5rem 0;
+}
+
+/* Inline code */
+.markdown code {
+  background: color-mix(in oklch, var(--gold) 12%, transparent);
+  border: 1px solid var(--hairline);
+  border-radius: 4px;
+  padding: .15rem .4rem;
+  font-size: .85em;
+  color: var(--gold);
+}
+
+/* Horizontal rule */
+.markdown hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--hairline), transparent);
+  margin: 2.5rem 0;
+}
+
+/* Sidebar enhancements */
+.menu__link--active {
+  border-right: 2px solid var(--gold) !important;
+}
+
+/* Chapter CTA button (intro page) */
+a.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .75rem;
+  border-radius: 9999px;
+  border: 1px solid var(--gold);
+  background: var(--gold);
+  padding: 14px 28px;
+  font-size: .875rem;
+  font-weight: 500;
+  color: var(--background) !important;
+  text-decoration: none !important;
+  transition: transform .3s, box-shadow .3s;
+  font-family: var(--font-sans);
+}
+
+a.hero-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(201, 168, 76, .3);
+}
+
+/* ======================== */
+/* MOBILE RESPONSIVE — Internal Pages */
+/* ======================== */
+
+@media (max-width: 479px) {
+  .markdown { padding: 1rem .5rem; }
+  .markdown h1 { font-size: 1.75rem; margin-bottom: 1.25rem; }
+  .markdown h2 { font-size: 1.35rem; margin-top: 2rem; }
+  .markdown h3 { font-size: 1.15rem; margin-top: 1.5rem; }
+  .markdown p { font-size: .9rem; line-height: 1.7; margin-bottom: 1.25rem; }
+  .markdown .contains-task-list { padding: 1rem .75rem; }
+  .markdown .task-list-item { font-size: .85rem; padding: .5rem 0 .5rem 1.75rem; }
+  .markdown .task-list-item input[type="checkbox"] { width: 1rem; height: 1rem; top: .5rem; }
+  .markdown h2 + ul:not(.contains-task-list) { padding: 1.25rem; }
+  .markdown h2 + ul:not(.contains-task-list) li { font-size: .9rem; }
+  .markdown blockquote { padding: 1rem; }
+  .markdown blockquote p { font-size: .9rem; }
+  .markdown img { margin: 1rem 0; }
+  .markdown code { font-size: .8em; }
+  .markdown hr { margin: 1.5rem 0; }
+  .markdown table { font-size: .8rem; }
+  .markdown thead th { padding: .6rem .5rem; font-size: .7rem; }
+  .markdown td { padding: .5rem; }
+  a.hero-cta { padding: 10px 20px; font-size: .8rem; }
+  .navbar { padding: 0 .75rem; height: 56px; }
+  .navbar__title { font-size: 1rem; }
+  .navbar__link { font-size: .8rem; padding: .25rem .5rem; }
+}
+
+@media (min-width: 480px) and (max-width: 767px) {
+  .markdown h1 { font-size: 2rem; }
+  .markdown h2 { font-size: 1.5rem; }
+  .markdown h3 { font-size: 1.25rem; }
+  .markdown p { font-size: .95rem; }
+}
+
+/* Ensure content never overflows */
+.markdown pre,
+.markdown table,
+.markdown img {
+  max-width: 100%;
+  overflow-x: auto;
+}

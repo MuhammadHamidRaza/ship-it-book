@@ -279,7 +279,7 @@ export default function Home(): ReactNode {
 
           {/* AUTHOR */}
           <section className="author-section-bottom">
-            <div className="author-container">
+            <div className="author-container" id="author">
               <div className="author-grid">
                 <div className="author-left">
                   <div className="author-label">About the author</div>

@@ -1059,3 +1059,139 @@
 }
 
 :global(.homepage-footer-links a:hover) { color: oklch(78% .12 85); }
+
+/* ================================ */
+/* MOBILE RESPONSIVE OVERRIDES      */
+/* ================================ */
+
+/* Prevent horizontal overflow on all screens */
+:global(.homepage-root) {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* ───── Small phones (< 480px) ───── */
+@media (max-width: 479px) {
+  /* Hide decorative numbers entirely to prevent overflow */
+  :global(.hero-bg-number) { display: none; }
+  :global(.toc-bg-text) { display: none; }
+
+  /* Header */
+  :global(.homepage-header-inner) { padding: 1rem .75rem; gap: .5rem; }
+  :global(.homepage-logo-icon) { height: 1.5rem; width: 1.5rem; font-size: .75rem; }
+  :global(.homepage-logo-text) { font-size: 1rem; }
+
+  /* Hero */
+  :global(.hero-container) { padding: 1.5rem .75rem 2rem; }
+  :global(.hero-grid) { gap: 1.25rem; margin-top: 1.5rem; }
+  :global(.hero-compass) { height: 3rem; width: 3rem; left: -.25rem; top: -.5rem; }
+  :global(.hero-meta) { font-size: 8px; gap: .5rem; }
+  :global(.hero-meta-line) { width: 1.5rem; }
+  :global(.hero-title-ship) { font-size: clamp(2.5rem, 12vw, 4rem); }
+  :global(.hero-title-it) { font-size: clamp(2.5rem, 12vw, 4rem); margin-top: -.25rem; }
+  :global(.homepage-root .hero-tagline) { font-size: 1.125rem; margin-top: 1rem; }
+  :global(.homepage-root .hero-desc) { font-size: .8rem; margin-top: .75rem; }
+  :global(.hero-cta-row) { margin-top: 1.25rem; gap: .5rem; }
+  :global(.hero-cta-primary) { padding: 10px 20px; font-size: .8rem; }
+  :global(.hero-cta-secondary) { padding: 10px 16px; font-size: .8rem; }
+
+  /* Author badge below book */
+  :global(.author-badge) { margin-top: .75rem; gap: .5rem; }
+  :global(.author-badge-avatar-wrap) { height: 2.5rem; width: 2.5rem; }
+
+  /* Stats */
+  :global(.stats-section) { margin-top: 2rem; }
+  :global(.stats-item) { padding: 1.25rem 1rem; }
+  :global(.stats-value) { font-size: 2.5rem; }
+  :global(.stats-desc) { font-size: .65rem; line-height: 14px; }
+  :global(.stats-quote) { font-size: .8rem; line-height: 18px; margin-top: 1rem; }
+  :global(.stats-label) { font-size: 8px; margin-bottom: .5rem; }
+
+  /* Marquee */
+  :global(.marquee-wrap) { padding: .75rem 0; }
+  :global(.ticker-text) { font-size: 1.125rem; }
+  :global(.marquee-fade) { width: 3rem; }
+
+  /* TOC */
+  :global(.toc-container) { padding: 2.5rem .75rem; }
+  :global(.toc-header) { flex-direction: column; align-items: flex-start; gap: .75rem; }
+  :global(.toc-title) { font-size: 1.5rem; margin-top: .5rem; }
+  :global(.toc-subtitle) { max-width: 100%; font-size: .8rem; }
+  :global(.toc-grid) { margin-top: 1.5rem; gap: .75rem; }
+  :global(.toc-card) { padding: 1rem; }
+  :global(.toc-card-title) { font-size: 1.25rem; }
+  :global(.toc-card-desc) { font-size: .8rem; margin-top: .5rem; }
+  :global(.toc-card-bg-number) { font-size: 5rem; bottom: -.75rem; right: -.25rem; }
+  :global(.toc-card-body) { margin-top: 1rem; }
+  :global(.toc-card-header) { gap: .5rem; }
+  :global(.toc-card-header-left) { gap: .5rem; }
+  :global(.toc-card-numeral) { height: 1.75rem; width: 1.75rem; font-size: .8rem; }
+  :global(.toc-card-footer) { margin-top: 1rem; font-size: 8px; }
+
+  /* Author section */
+  :global(.author-container) { padding: 2.5rem .75rem; }
+  :global(.author-grid) { gap: 1.5rem; }
+  :global(.author-name-block) { font-size: 1.5rem; }
+  :global(.author-quote) { font-size: 1.125rem; }
+  :global(.author-bio) { font-size: .875rem; }
+  :global(.author-links) { margin-top: 1rem; column-gap: 1rem; row-gap: .375rem; font-size: .8rem; }
+
+  /* Footer */
+  :global(.homepage-footer-inner) { padding: 1.5rem .75rem; gap: .5rem; font-size: .7rem; }
+  :global(.homepage-footer-left) { display: flex; flex-wrap: wrap; align-items: center; }
+  :global(.homepage-footer-brand) { font-size: .875rem; }
+  :global(.homepage-footer-dot) { margin: 0 .5rem; }
+  :global(.homepage-footer-links) { gap: .75rem; }
+}
+
+/* ───── Medium phones / small tablets (480px - 639px) ───── */
+@media (min-width: 480px) and (max-width: 639px) {
+  /* Reduce decorative numbers */
+  :global(.hero-bg-number) { font-size: 12rem; right: -2rem; top: 1.5rem; }
+  :global(.toc-bg-text) { font-size: 8rem; top: 5rem; left: -.5rem; }
+
+  /* Header */
+  :global(.homepage-header-inner) { padding: 1.25rem 1rem; }
+
+  /* Hero */
+  :global(.hero-container) { padding: 2rem 1rem 3rem; }
+  :global(.hero-grid) { gap: 1.5rem; margin-top: 2rem; }
+  :global(.hero-compass) { height: 4rem; width: 4rem; left: -.5rem; top: -.75rem; }
+  :global(.hero-title-ship) { font-size: clamp(3rem, 13vw, 6rem); }
+  :global(.hero-title-it) { font-size: clamp(3rem, 13vw, 6rem); }
+  :global(.homepage-root .hero-tagline) { font-size: 1.25rem; margin-top: 1rem; }
+  :global(.homepage-root .hero-desc) { margin-top: 1rem; }
+
+  /* Stats */
+  :global(.stats-section) { margin-top: 2.5rem; }
+  :global(.stats-item) { padding: 1.5rem 1rem; }
+  :global(.stats-value) { font-size: 3rem; }
+
+  /* Marquee */
+  :global(.ticker-text) { font-size: 1.375rem; }
+  :global(.marquee-fade) { width: 4rem; }
+
+  /* TOC */
+  :global(.toc-container) { padding: 3rem 1rem; }
+  :global(.toc-title) { font-size: 1.75rem; }
+  :global(.toc-subtitle) { max-width: 100%; }
+  :global(.toc-card-title) { font-size: 1.375rem; }
+  :global(.toc-card-bg-number) { font-size: 7rem; }
+
+  /* Author */
+  :global(.author-container) { padding: 3rem 1rem; }
+  :global(.author-name-block) { font-size: 1.75rem; }
+  :global(.author-quote) { font-size: 1.25rem; }
+}
+
+/* ───── Fix TOC header on mobile (< 640px) ───── */
+@media (max-width: 639px) {
+  :global(.toc-header) {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .75rem;
+  }
+  :global(.toc-header-left) { width: 100%; }
+  :global(.toc-subtitle) { max-width: 100%; }
+}

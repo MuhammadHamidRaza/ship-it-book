@@ -1,5 +1,9 @@
 import {useEffect, useState} from 'react';
 
+const GOLD = '#dbb155';
+const GOLD_SOFT = '#f3d489';
+const GOLD_DEEP = '#a47726';
+
 export default function ReadingProgressBar() {
   const [width, setWidth] = useState(0);
 
@@ -23,15 +27,15 @@ export default function ReadingProgressBar() {
       width: '100%',
       height: '3px',
       zIndex: 9999,
-      background: 'rgba(139, 92, 246, 0.1)',
+      background: 'rgba(219, 177, 85, 0.08)',
     }}>
       <div style={{
         height: '100%',
         width: `${width}%`,
-        background: 'linear-gradient(90deg, #6366f1, #8b5cf6)',
+        background: `linear-gradient(90deg, ${GOLD_DEEP}, ${GOLD}, ${GOLD_SOFT})`,
         transition: 'width 0.15s ease-out',
         borderRadius: '0 2px 2px 0',
-        boxShadow: '0 0 12px rgba(139, 92, 246, 0.4)',
+        boxShadow: `0 0 12px rgba(201, 168, 76, 0.4)`,
       }} />
     </div>
   );
