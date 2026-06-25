@@ -6,13 +6,13 @@ import styles from './index.module.css';
 
 const parts = [
   { numeral: '00', label: 'Introduction', chapters: '5 chapters', title: 'The Builder Reality Check', desc: 'Why you haven\'t built anything yet, the product gap, the startup myth, and how this book changes everything.', spanClass: 'tocWide', href: '/introduction/' },
-  { numeral: 'I', label: 'Part 1', chapters: '2 chapters', title: 'The Builder Mindset', desc: 'Rewire how you think about building. Break the tutorial trap and the perfectionism cycle.', spanClass: '', href: '/part-1-builder-mindset/' },
-  { numeral: 'II', label: 'Part 2', chapters: '4 chapters', title: 'Find & Validate the Problem', desc: 'Identify yourself as a builder, read markets, think problem-first, and validate before building.', spanClass: '', href: '/part-2-find-the-problem/' },
-  { numeral: 'III', label: 'Part 3', chapters: '3 chapters', title: 'Design the Solution', desc: 'Think in systems, research your domain, and design before you write a single line of code.', spanClass: '', href: '/part-3-design-the-solution/' },
-  { numeral: 'IV', label: 'Part 4', chapters: '3 chapters', title: 'Build It', desc: 'Build an MVP, make smart stack decisions, and debug like a thinker, not a guesser.', spanClass: '', href: '/part-4-build-it/' },
-  { numeral: 'V', label: 'Part 5', chapters: '3 chapters', title: 'Deploy & Show', desc: 'Ship your first version, get your first real user, and launch on channels that work.', spanClass: '', href: '/part-5-deploy-and-show/' },
-  { numeral: 'VI', label: 'Part 6', chapters: '3 chapters', title: 'Listen & Iterate', desc: 'Collect real feedback, know when to pivot, and iterate without breaking things.', spanClass: '', href: '/part-6-listen-and-iterate/' },
-  { numeral: 'VII', label: 'Part 7', chapters: '4 chapters', title: 'Build in Public', desc: 'Build on GitHub, grow on Twitter/LinkedIn, find your community, and play the long game.', spanClass: '', href: '/part-7-build-in-public/' },
+  { numeral: 'I', label: 'Part 1', chapters: '2 chapters', title: 'The Builder Mindset', desc: 'Rewire how you think about building. Break the tutorial trap and the perfectionism cycle.', spanClass: 'tocSpan3', href: '/part-1-builder-mindset/' },
+  { numeral: 'II', label: 'Part 2', chapters: '4 chapters', title: 'Find & Validate the Problem', desc: 'Identify yourself as a builder, read markets, think problem-first, and validate before building.', spanClass: 'tocSpan3', href: '/part-2-find-the-problem/' },
+  { numeral: 'III', label: 'Part 3', chapters: '3 chapters', title: 'Design the Solution', desc: 'Think in systems, research your domain, and design before you write a single line of code.', spanClass: 'tocSpan2', href: '/part-3-design-the-solution/' },
+  { numeral: 'IV', label: 'Part 4', chapters: '3 chapters', title: 'Build It', desc: 'Build an MVP, make smart stack decisions, and debug like a thinker, not a guesser.', spanClass: 'tocSpan2', href: '/part-4-build-it/' },
+  { numeral: 'V', label: 'Part 5', chapters: '3 chapters', title: 'Deploy & Show', desc: 'Ship your first version, get your first real user, and launch on channels that work.', spanClass: 'tocSpan2', href: '/part-5-deploy-and-show/' },
+  { numeral: 'VI', label: 'Part 6', chapters: '3 chapters', title: 'Listen & Iterate', desc: 'Collect real feedback, know when to pivot, and iterate without breaking things.', spanClass: 'tocSpan3', href: '/part-6-listen-and-iterate/' },
+  { numeral: 'VII', label: 'Part 7', chapters: '4 chapters', title: 'Build in Public', desc: 'Build on GitHub, grow on Twitter/LinkedIn, find your community, and play the long game.', spanClass: 'tocSpan3', href: '/part-7-build-in-public/' },
 ];
 
 const tickerItems = [
@@ -21,6 +21,18 @@ const tickerItems = [
 ];
 
 function CompassSvg() {
+  const tickLines = Array.from({length: 32}, (_, i) => {
+    const angle = (i * 360) / 32;
+    const rad = (angle - 90) * (Math.PI / 180);
+    const innerR = 82;
+    const outerR = 88;
+    const x1 = 100 + innerR * Math.cos(rad);
+    const y1 = 100 + innerR * Math.sin(rad);
+    const x2 = 100 + outerR * Math.cos(rad);
+    const y2 = 100 + outerR * Math.sin(rad);
+    return `<line x1="${x1.toFixed(4)}" y1="${y1.toFixed(4)}" x2="${x2.toFixed(4)}" y2="${y2.toFixed(4)}" />`;
+  }).join('');
+
   return (
     <svg viewBox="0 0 200 200" className="h-full w-full" aria-hidden="true">
       <defs>
@@ -35,6 +47,7 @@ function CompassSvg() {
         <circle cx="100" cy="100" r="88" strokeDasharray="1 3" />
         <circle cx="100" cy="100" r="62" />
         <circle cx="100" cy="100" r="40" strokeWidth="0.4" />
+        <g dangerouslySetInnerHTML={{__html: tickLines}} />
         <path d="M100 12 L108 100 L100 188 L92 100 Z" fill="url(#foil)" stroke="none" opacity="0.85" />
         <path d="M12 100 L100 92 L188 100 L100 108 Z" fill="url(#foil)" stroke="none" opacity="0.55" />
         <path d="M38 38 L100 96 L162 162 L104 104 Z" fill="url(#foil)" stroke="none" opacity="0.3" />
@@ -51,12 +64,9 @@ function CompassSvg() {
 
 function TickerRow({items, keyPrefix}: {items: string[]; keyPrefix: string}) {
   return (
-    <div className="flex shrink-0 items-center gap-10 px-5">
+    <div style={{display: 'flex', flexShrink: 0, alignItems: 'center', gap: '2.5rem', padding: '0 1.25rem'}}>
       {items.map((item, i) => (
-        <span key={`${keyPrefix}-${i}`} className="flex items-center gap-10">
-          <span className="ticker-text">{item}</span>
-          <span className="ticker-dot" />
-        </span>
+        <span key={`${keyPrefix}-${i}`} className="ticker-text">{item}</span>
       ))}
     </div>
   );
@@ -86,20 +96,9 @@ export default function Home(): ReactNode {
                 Read the book
                 <span className="homepage-nav-underline" />
               </a>
-              <a
-                href="https://github.com/MuhammadHamidRaza"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="GitHub"
-                className="homepage-gh-link"
-              >
-                <svg viewBox="0 0 24 24" className="h-5 w-5" fill="currentColor" aria-hidden="true">
-                  <path d="M12 .5C5.65.5.5 5.66.5 12.02c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.55v-2.06c-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.19-3.09-.12-.3-.52-1.47.11-3.06 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.06.74.81 1.18 1.83 1.18 3.09 0 4.42-2.69 5.39-5.26 5.68.41.36.78 1.07.78 2.15v3.18c0 .31.21.66.8.55A11.52 11.52 0 0 0 23.5 12.02C23.5 5.66 18.35.5 12 .5Z" />
-                </svg>
-              </a>
+            
             </nav>
           </div>
-          <div className="homepage-header-divider" />
         </header>
 
         <main>
@@ -124,7 +123,11 @@ export default function Home(): ReactNode {
                   </div>
                   <div className="hero-book">
                     <div className="hero-book-overlay" />
-                    <div className="hero-book-image" />
+                    <img
+                      src="/ship-it-book/img/hero-book-cover.jpg"
+                      alt="Ship It — a hand-bound first-edition hardcover"
+                      className="hero-book-image"
+                    />
                     <span className="hero-corner hero-corner-tl" />
                     <span className="hero-corner hero-corner-tr" />
                     <span className="hero-corner hero-corner-bl" />
@@ -169,9 +172,6 @@ export default function Home(): ReactNode {
                     <Link to="/introduction/" className="hero-cta-primary">
                       <span className="hero-cta-primary-bg" />
                       <span className="hero-cta-primary-text">Start reading</span>
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="hero-cta-arrow" aria-hidden="true">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M13 5l7 7-7 7" />
-                      </svg>
                     </Link>
                     <a
                       href="https://github.com/MuhammadHamidRaza"
@@ -229,9 +229,6 @@ export default function Home(): ReactNode {
               <div className="toc-header">
                 <div className="toc-header-left">
                   <div className="toc-header-label">
-                    <svg viewBox="0 0 20 20" className="toc-star-icon" fill="currentColor" aria-hidden="true">
-                      <path d="M10 0l2.5 7.5L20 10l-7.5 2.5L10 20l-2.5-7.5L0 10l7.5-2.5z" />
-                    </svg>
                     Table of contents
                   </div>
                   <h2 className="toc-title">
@@ -242,7 +239,6 @@ export default function Home(): ReactNode {
                   Twenty-seven chapters of practice, not theory. Read straight through, or open the part you're stuck on.
                 </p>
               </div>
-              <div className="toc-divider" />
               <div className="toc-grid">
                 {parts.map((part, i) => (
                   <a
