@@ -407,3 +407,9 @@ body {
   .markdown h3 { font-size: 1.2rem; }
   .markdown p { font-size: 1rem; }
 }
+
+/* Hide Docusaurus navbar & footer on homepage */
+body:has(.homepage-root) .navbar,
+body:has(.homepage-root) .footer {
+  display: none !important;
+}

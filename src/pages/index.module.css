@@ -2,12 +2,7 @@
 /* HOMEPAGE LAYOUT                  */
 /* ================================ */
 
-.homepageLayout :global(.navbar),
-.homepageLayout :global(.navbar--fixed-top),
-.homepageLayout :global(.footer),
-.homepageLayout :global(.footer--dark) {
-  display: none !important;
-}
+.homepageLayout {} /* needed to keep the CSS module class */
 
 /* ================================ */
 /* GLOBAL UTILITIES FOR HOMEPAGE    */
